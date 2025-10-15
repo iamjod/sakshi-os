@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sakshi OS - A personalized desktop experience">
+    <link rel="stylesheet" href="style.css">
+    <title>Sakshi OS</title>
+</head>
+<body>
+    <!-- Boot Screen: Enhanced with role and aria-live for accessibility -->
+    <div id="boot-screen" role="status" aria-live="polite" aria-label="Loading Sakshi OS">
+        <div class="boot-content">
+            <div class="boot-logo">
+                <div class="heart-loader" aria-hidden="true">💖</div>
+                <h1 class="boot-title">Sakshi OS</h1>
+                <p class="boot-subtitle">Loading your personalized experience...</p>
+            </div>
+            <div class="boot-progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-fill"></div>
+                </div>
+                <p class="boot-message">Booting into Sakshi OS</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Desktop View: Enhanced semantic structure -->
+    <div id="desktop-view">
+        <main id="desktop" role="main">
+            <!-- Desktop Icons: Improved accessibility and structure -->
+            <nav class="desktop-icons" role="navigation" aria-label="Desktop applications">
+                <button class="icon" data-app="notepad" aria-label="Open Notepad">
+                    <img src="assets/notepad.png" alt="" aria-hidden="true">
+                    <span>Notepad</span>
+                </button>
+                <button class="icon" data-app="birthday-vault" aria-label="Open Birthday Vault">
+                    <img src="assets/birthday-cake.png" alt="" aria-hidden="true">
+                    <span>Birthday Vault</span>
+                </button>
+                <button class="icon" data-app="photo-memory" aria-label="Open Photo Memory">
+                    <img src="assets/camera.png" alt="" aria-hidden="true">
+                    <span>Photo Memory</span>
+                </button>
+
+                <button class="icon" data-app="inspiration" aria-label="Open Inspiration">
+                    <img src="assets/stars.png" alt="" aria-hidden="true">
+                    <span>Inspiration</span>
+                </button>
+                <button class="icon" data-app="our-story" aria-label="Open Our Story">
+                    <img src="assets/book.png" alt="" aria-hidden="true">
+                    <span>Our Story</span>
+                </button>
+                <button class="icon" data-app="awesome-reasons" aria-label="Open Reasons You're Awesome">
+                    <img src="assets/ribbon.png" alt="" aria-hidden="true">
+                    <span>Reasons You're Awesome</span>
+                </button>
+                <button class="icon" data-app="open-when" aria-label="Open When Letters">
+                    <img src="assets/paper.png" alt="" aria-hidden="true">
+                    <span>Open When</span>
+                </button>
+            </nav>
+
+            
+
+            <!-- Taskbar: Enhanced with semantic footer -->
+            <footer id="taskbar" role="contentinfo">
+                <button id="start-menu" aria-label="Open Start Menu" aria-expanded="false" aria-haspopup="true">
+                    <img src="assets/gift-box.png" alt="" aria-hidden="true">
+                    <span class="sr-only">Start Menu</span>
+                </button>
+                <div id="taskbar-icons" aria-label="Running applications"></div>
+                <button id="switch-to-mobile" class="interactive-clock" aria-label="Switch to mobile view">📱 Mobile</button>
+                <button id="clock" class="interactive-clock" aria-label="View current time and date" aria-haspopup="true">
+                    <time datetime="">12:00 PM IST</time>
+                </button>
+            </footer>
+
+            <!-- Start Menu Popup: Improved dialog structure -->
+            <div id="start-menu-popup" class="start-menu-hidden" role="dialog" aria-labelledby="start-menu-title" aria-modal="true">
+                <div class="start-menu-content">
+                    <header class="start-menu-header">
+                        <h2 id="start-menu-title">Welcome Sakshi! 💖</h2>
+                        <button class="close-start-menu" aria-label="Close Start Menu">×</button>
+                    </header>
+                    <nav class="start-menu-apps" role="navigation" aria-label="Application launcher">
+                        <button class="start-menu-app" data-app="notepad">
+                            <img src="assets/notepad.png" alt="" aria-hidden="true">
+                            <span>Notepad</span>
+                        </button>
+                        <button class="start-menu-app" data-app="birthday-vault">
+                            <img src="assets/birthday-cake.png" alt="" aria-hidden="true">
+                            <span>Birthday Vault</span>
+                        </button>
+                        <button class="start-menu-app" data-app="photo-memory">
+                            <img src="assets/camera.png" alt="" aria-hidden="true">
+                            <span>Photo Memory</span>
+                        </button>
+
+                        <button class="start-menu-app" data-app="inspiration">
+                            <img src="assets/stars.png" alt="" aria-hidden="true">
+                            <span>Inspiration</span>
+                        </button>
+                        <button class="start-menu-app" data-app="our-story">
+                            <img src="assets/book.png" alt="" aria-hidden="true">
+                            <span>Our Story</span>
+                        </button>
+                        <button class="start-menu-app" data-app="awesome-reasons">
+                            <img src="assets/ribbon.png" alt="" aria-hidden="true">
+                            <span>Reasons You're Awesome</span>
+                        </button>
+                        <button class="start-menu-app" data-app="open-when">
+                            <img src="assets/paper.png" alt="" aria-hidden="true">
+                            <span>Open When</span>
+                        </button>
+                    </nav>
+                    <footer class="start-menu-footer">
+                        <p>Made with love by Aarav for Sakshi</p>
+                    </footer>
+                </div>
+            </div>
+
+            <!-- Clock Popup: Enhanced structure -->
+            <div id="clock-popup" class="clock-popup-hidden" role="dialog" aria-labelledby="clock-popup-title" aria-modal="true">
+                <div class="clock-popup-content">
+                    <header class="clock-popup-header">
+                        <h2 id="clock-popup-title">Hello Sakshi! ✨</h2>
+                        <button class="close-clock-popup" aria-label="Close clock popup">×</button>
+                    </header>
+                    <div class="clock-popup-body">
+                        <div class="current-time" role="timer" aria-live="polite"></div>
+                        <div class="current-date"></div>
+                        <div class="birthday-countdown" role="status" aria-live="polite"></div>
+                        <div class="sweet-message"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Windows Container: For app windows -->
+            <div id="windows-container" aria-live="polite"></div>
+
+            <!-- Daily Widget: Enhanced with better structure -->
+            <aside id="daily-widget" role="complementary" aria-label="Daily information widget"></aside>
+        </main>
+    </div>
+
+    <!-- Mobile View: Enhanced mobile structure -->
+    <div id="mobile-view">
+        <div id="mobile-boot-screen" role="status" aria-live="polite">
+            <div class="mobile-boot-content">
+                <div class="mobile-boot-logo">
+                    <div class="mobile-heart-loader" aria-hidden="true">💖</div>
+                    <h1 class="mobile-boot-title">Sakshi OS</h1>
+                    <p class="mobile-boot-subtitle">Mobile Edition</p>
+                </div>
+                <div class="mobile-boot-progress">
+                    <div class="mobile-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        <div class="mobile-progress-fill"></div>
+                    </div>
+                    <p class="mobile-boot-message">Loading with love...</p>
+                </div>
+            </div>
+        </div>
+
+        <main id="mobile-desktop">
+            <!-- Mobile Header: Improved semantic structure -->
+            <header class="mobile-header">
+                <div class="mobile-header-left">
+                    <h1 class="mobile-greeting">Hi Sakshi 💖</h1>
+                    <time class="mobile-date" datetime="">Oct 16</time>
+                </div>
+                <div class="mobile-header-right">
+                    <img class="mobile-avatar" src="assets/camera.png" alt="User avatar" />
+                    <time class="mobile-time" datetime="">12:34 PM</time>
+                </div>
+            </header>
+
+            <!-- Quick Actions: Better accessibility -->
+            <nav class="mobile-quick-actions" aria-label="Quick actions">
+                <button class="mqa-btn mqa-love" aria-label="Send love">💌 Love</button>
+                <button class="mqa-btn mqa-countdown" aria-label="View countdown">🎂 Countdown</button>
+                <button class="mqa-btn mqa-desktop" aria-label="Switch to desktop view">🖥️ Desktop</button>
+            </nav>
+
+            <!-- Mobile Apps Grid -->
+            <section class="mobile-apps-grid" aria-label="Applications">
+                <button class="mobile-app" data-app="notepad">
+                    <div class="mobile-app-icon">
+                        <img src="assets/notepad.png" alt="" aria-hidden="true">
+                    </div>
+                    <span class="mobile-app-name">Notepad</span>
+                </button>
+
+                <button class="mobile-app" data-app="birthday-vault">
+                    <div class="mobile-app-icon">
+                        <img src="assets/birthday-cake.png" alt="" aria-hidden="true">
+                    </div>
+                    <span class="mobile-app-name">Birthday Vault</span>
+                </button>
+
+                <button class="mobile-app" data-app="photo-memory">
+                    <div class="mobile-app-icon">
+                        <img src="assets/camera.png" alt="" aria-hidden="true">
+                    </div>
+                    <span class="mobile-app-name">Photo Memory</span>
+                </button>
+
+
+
+                <button class="mobile-app" data-app="inspiration">
+                    <div class="mobile-app-icon">
+                        <div class="mobile-icon-emoji" aria-hidden="true">✨</div>
+                    </div>
+                    <span class="mobile-app-name">Inspiration</span>
+                </button>
+
+                <button class="mobile-app" data-app="our-story">
+                    <div class="mobile-app-icon">
+                        <div class="mobile-icon-emoji" aria-hidden="true">📖</div>
+                    </div>
+                    <span class="mobile-app-name">Our Story</span>
+                </button>
+
+                <button class="mobile-app" data-app="awesome-reasons">
+                    <div class="mobile-app-icon">
+                        <img src="assets/ribbon.png" alt="" aria-hidden="true">
+                    </div>
+                    <span class="mobile-app-name">Reasons You're Awesome</span>
+                </button>
+
+                <button class="mobile-app" data-app="open-when">
+                    <div class="mobile-app-icon">
+                        <img src="assets/paper.png" alt="" aria-hidden="true">
+                    </div>
+                    <span class="mobile-app-name">Open When</span>
+                </button>
+            </section>
+
+            <!-- Mobile Widget -->
+            <aside class="mobile-widget" role="complementary" aria-label="Birthday countdown widget">
+                <div class="mobile-widget-content">
+                    <div class="mobile-widget-icon" aria-hidden="true">🎂</div>
+                    <div class="mobile-widget-text">
+                        <h2 class="mobile-widget-title">Birthday Countdown</h2>
+                        <time class="mobile-widget-subtitle" datetime="">Oct 16</time>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+
+        <div id="mobile-windows-container" aria-live="polite"></div>
+    </div>
+
+    <!-- App Content Templates: Hidden content for apps -->
+    <div id="app-content" style="display: none;" aria-hidden="true">
+        <template id="notepad-content">
+            <article class="app-notepad">
+                <p>Dear Sakshi,
+
+22 looks good on you. I know I don't say it often, but you've grown into someone really special. 
+
+I've watched you handle tough days with grace, laugh at the stupidest jokes, and somehow still tolerate my nonsense. That takes patience I'll never understand.
+
+You make ordinary days feel less ordinary. Whether it's our random 2 AM conversations or just sharing memes that make no sense to anyone else - these are the moments I value most.
+
+I'm not great at this whole "expressing feelings" thing. But I want you to know: you matter. Your happiness matters. Your peace matters. 
+
+Here's to another year of you being you.
+
+- Aarav <br> Yes, I actually took time to make this website. No, I don't expect a thank you. Okay, maybe a small one.</p>
+                <p>This is the first app of the website, and probably you're reading this one in the first place, I hope you like it, it took me... I don't know how many days, I started this before the economics exam... so I don't know how many days, it's 4 Oct today, when I'm writing this.</p>
+            </article>
+        </template>
+        
+        <template id="birthday-vault-content">
+            <article class="app-birthday-vault">
+    <div class="vault-icon" aria-hidden="true">🎂</div>
+    <h3>Birthday Time Capsule</h3>
+    
+    <div class="vault-section">
+        <h4>This Year's Wishes for You:</h4>
+        <ul class="wish-list">
+            <li> May your this year is bestest of all the 21 you've lived</li>
+            <li> May you live life to the fullest</li>
+            <li> May you have time to do what makes you happy</li>
+            <li> May your spend your entire time with the ones you love</li>
+            <li> May you don't die</li>
+        </ul>
+    </div>
+    
+    <div class="vault-section">
+        <h4>What I Hope You Know at 22:</h4>
+        <p class="vault-wisdom">
+            You are stronger than you think, braver than you feel, and more loved than you know. You're more than everything, you're just enough, as you are
+        </p>
+    </div>
+    
+    <div class="vault-countdown-box">
+        <p class="countdown-label">Next Birthday In:</p>
+        <p class="countdown-display" id="dynamic-countdown">
+            <span class="count-number">--</span> days
+            <span class="count-number">--</span> hours
+            <span class="count-number">--</span> minutes
+        </p>
+        <p class="countdown-note">But who's counting? 😊</p>
+    </div>
+    
+    <div class="vault-message">
+        <p> You're not getting older, you're getting better</p>
+        <p class="vault-subtext">(Okay, maybe a little bit older too)</p>
+    </div>
+</article>
+        </template>
+        
+        <template id="photo-memory-content">
+            <article class="app-photo-memory" data-young-label="Sister..? Brother..? God knows.." data-now-label="My beautiful sister">
+                <div class="memory-icon" aria-hidden="true">📸</div>
+                <p class="memory-title">Precious memories captured</p>
+                <blockquote class="memory-quote">
+                    I think, the best memories remained unphotographed, but here are some of my favourite ones.
+                </blockquote>
+                <div class="photo-gallery" aria-label="Photo gallery" aria-live="polite"></div>
+            </article>
+        </template>
+        
+        <template id="inspiration-content">
+            <article class="app-inspiration">
+            </article>
+        </template>
+        
+        <template id="our-story-content">
+            <article class="app-sibling-story">
+    <header class="story-header">
+        <div class="story-icon" aria-hidden="true">👫</div>
+        <h3>The Chronicles of Aarav & Sakshi</h3>
+        <p class="story-subtitle">A tale of chaos, laughter, and unbreakable bonds</p>
+    </header>
+    
+    <div class="story-content">
+        <div class="story-chapter">
+            <h4>Chapter 1: The Beginning</h4>
+            <p>
+                I don't know if you remember, but we met around the time you were almost Legend. 
+                The first converstaion was about reaching Legend on the same day, which didn't happen, erm
+
+            </p>
+            <p>
+                Mika used to be decently active, and you were too but not that much.. yeah
+            </p>
+        </div>
+        
+        <div class="story-chapter">
+            <h4>Chapter 2: The Growing Years</h4>
+            <p>
+                Fast forwarding to a new Gartic era, you, me, Slay, Fur, Cosmic, Glasses became a new squad.
+            Y'all used to play in GarticBr too much, and I used to join sometimes. But I didn't like playing there much bcs I wanted xp.
+            </p>
+            <p>
+                I was the most active and you were the least, I don't know if we used to talk that much, but we did talk quite a bit
+            </p>
+        </div>
+        
+        <div class="story-chapter">
+            <h4>Chapter 3: God knows what</h4>
+            <p>
+                I don't know why and when we even got closer, I randomly asked you weren't you dating Aryan AGAIN, and you told me the thing
+                and I became your therapist, and still am to this day. I don't know why you tell me all this stuff, but I'm glad you do.
+            </p>
+            <p>
+               We used to fight too, maybe a bit too much, I don't even remember at this point how much we use to fight, but it was definitely a lot
+               . But we'd just talk after a while and forget everything, and go back to being normal. 
+            </p>
+            <p>
+               Then I started dating and told you about everything I'd spam your dms with what I think, what I overthink and you taught me a bit of
+               girl's psychology, which I still don't understand, plus I don't remember nothing.
+            </p>
+            <p>
+                Although you never told me about your day, I realised this when I broke up with flower, then I think I stopped teling you stuff
+                and then you started dating, then I just stopped talking at all, because.. well I felt like you'd tell him stuff and maybe
+                I was forcing you to talk to me, so I just stopped. But I still cared. 
+            </p>
+        </div>
+        
+        <div class="story-chapter">
+            <h4>Chapter 4: The untold</h4>
+            <p>
+                I've mentioned this many times but I don't like talking with people who're dating, I don't know why, but yes.
+            </p>
+            <p>
+               I don't know how to explain it, but it just feels different. Maybe it's the fear of losing you to someone else, or maybe it's just the way relationships change people.
+               But I definitely felt you're not talking, as much, if I don't dm first. I felt replacable, and I thought of not bothering you, anymore.
+            </p>
+            <p>
+                You blocked me, for whatever reason, I was sad, you didn't come to wish me birthday, didn't come when I needed you the most, I was sad, I was overwhelmed, but I never told anyone about it
+                not you, not anyone.
+            </p>
+            <p>
+                Maybe I was jealous, maybe I was selfish to ask you stay, so I didn't. But that was all I ever wanted, it remained unsaid
+                until.. now
+            </p>
+        </div>
+         <div class="story-chapter">
+            <h4>Chapter 5: The now</h4>
+            <p>
+               
+            </p>
+            <p>
+              Well, now everything is different. I've changed, although you're the same. I'm more open now, I don't go hiding stuff, okay, maybe sometimes
+                but I try to be more open. I don't know if you even care, but I do. 
+            </p>
+            <p>
+               We talk.. more than ever, and I'm glad we do, and I hope we always will.
+            </p>
+            <p>
+                What I want from you is.. You, just you, nothing more, nothing less, just you, you, and you. 
+                Maybe I'm selfish to ask this, but I really want you, I really love, and care for you, and I always will. I want you to be there for me, just like I want to be there for you. So please
+                stay with me.. until faith do us apart.
+            </p>
+        </div>
+    </div>
+    
+    <footer class="story-footer">
+        <p>💫 To be continued... in real life 💫</p>
+        <p class="story-note">
+            "Side by side or miles apart, siblings will always be connected by heart."
+        </p>
+    </footer>
+</article>
+        </template>
+
+        <template id="awesome-reasons-content">
+    <article class="app-awesome-reasons">
+        <div class="awesome-icon" aria-hidden="true">⭐</div>
+        <h3> Reasons You're Amazing</h3>
+        <p class="awesome-subtitle">For when you forget how special you are</p>
+        
+        <div class="reasons-container" style="display: none;">
+            <div class="reason-item">You're nice, you don't go hurting people, and you try to.</div>
+            <div class="reason-item">You're too sweet, too good, too much everything. ARE YOU EVEN REAL</div>
+            <div class="reason-item">You're always there to listen to people, which most people don't</div>
+            <div class="reason-item">You're beautiful, this ain't a reason to be awesome, but a compliment from Jod!?!?! Isn't that crazy</div>
+            <div class="reason-item">You care deeply, and truly, you don't go faking stuff</div>
+            <div class="reason-item">You make my day, you cheer me up, you just make me happy, yes, this was for me</div>
+            <div class="reason-item">You get hurt easily, but that's okay, you're just human, after all, right?</div>
+            <div class="reason-item">You try to make time for other people, which most people don't.</div>
+            <div class="reason-item">You're a great friend, and I'm lucky to have you in my life.</div>
+            <div class="reason-item">You're one of a kind, and that's what makes you special.</div>
+            <div class="reason-item">You light up the room just by being in it.</div>
+            <div class="reason-item">You're presence is enough to make everything better.</div>
+            <div class="reason-item">You're so smart, you probably know what I'm thinking right now.</div>
+        </div>
+        
+        <div class="reason-display" style="min-height: 50px; margin-bottom: 20px;"></div>
+
+        <button class="shuffle-reasons-btn" onclick="shuffleReasons()">
+            Show Me a Reason 🎲
+        </button>
+        
+        <div class="awesome-footer">
+            <p>And this is just the beginning of the list...</p>
+        </div>
+    </article>
+    </template>
+
+    <template id="open-when-content">
+    <article class="app-open-when">
+        <div class="open-when-icon" aria-hidden="true">💌</div>
+        <h3>Open When...</h3>
+        <p class="open-when-subtitle">Letters for different moments</p>
+        
+        <div class="letters-grid">
+            <button class="letter-envelope" data-letter="happy">
+                <span class="envelope-icon">💚</span>
+                <span class="envelope-label">Open when you're happy</span>
+            </button>
+            
+            <button class="letter-envelope" data-letter="sad">
+                <span class="envelope-icon">💙</span>
+                <span class="envelope-label">Open when you're sad</span>
+            </button>
+            
+            <button class="letter-envelope" data-letter="stressed">
+                <span class="envelope-icon">💜</span>
+                <span class="envelope-label">Open when you're stressed</span>
+            </button>
+            
+            <button class="letter-envelope" data-letter="proud">
+                <span class="envelope-icon">💛</span>
+                <span class="envelope-label">Open when you need to feel proud</span>
+            </button>
+            
+            <button class="letter-envelope" data-letter="lonely">
+                <span class="envelope-icon">🧡</span>
+                <span class="envelope-label">Open when you feel alone</span>
+            </button>
+            
+            <button class="letter-envelope" data-letter="brave">
+                <span class="envelope-icon">❤️</span>
+                <span class="envelope-label">Open when you need courage</span>
+            </button>
+        </div>
+        
+        <div class="letter-content" id="letter-display" style="display:none;">
+            <!-- Content populated by JS -->
+        </div>
+    </article>
+    </template>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
