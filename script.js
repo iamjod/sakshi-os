@@ -339,7 +339,7 @@ const LockScreen = {
 
 // Photo Memory Module: renders images from the "photo memory" folder
 const PhotoMemory = {
-    basePath: 'photo memory/',
+    basePath: '',
     photos: [
         'saksi small.jpeg',
         'saksi.webp',
